@@ -6,18 +6,18 @@ module.exports = gql`
     hello: String!
     notes: [Note!]!
     note(id: ID!): Note!
-    user(username:String!): User
+    user(username: String!): User
     users: [User!]!
-    me:User!
-    noteFeed(cursor:String!): NoteFeed
+    me: User!
+    noteFeed(cursor: String): NoteFeed
   }
   type Mutation {
     newNote(content: String!): Note!
     updateNote(id: ID, content: String!): Note!
     deleteNote(id: ID!): Boolean!
-    signUp(username:String!, email:String!, password:String!):String!
-    signIn(username:String, email:String, password:String!): String!
-    toggleFavorite(id:ID!): Note!
+    signUp(username: String!, email: String!, password: String!): String!
+    signIn(username: String, email: String, password: String!): String!
+    toggleFavorite(id: ID!): Note!
   }
   type Note {
     id: ID!
@@ -30,17 +30,17 @@ module.exports = gql`
   }
 
   type User {
-      id: ID!
-      username: String!
-      email: String!
-      avatar: String
-      notes: [Note!]!
-      favorites: [Note!]
+    id: ID!
+    username: String!
+    email: String!
+    avatar: String
+    notes: [Note!]!
+    favorites: [Note!]
   }
 
   type NoteFeed {
     notes: [Note!]!
-    cursor: String!
+    cursor: String
     hasNextPage: Boolean!
   }
 `;
